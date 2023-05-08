@@ -2,3 +2,4 @@
 *.prefab text merge=unityyamlmerge
 *.asset text merge=unityyamlmerge
 *.meta text merge=unityyamlmerge
+
