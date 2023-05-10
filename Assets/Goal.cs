@@ -3,6 +3,12 @@ using UnityEngine.Audio;
 
 public class Goal : MonoBehaviour
 {
+
+    public float delay = 6f;
+
+    public MusicController musicController;
+
+    public LevelManager levelManager;
     public AudioClip victorySound;
     public AudioSource audioSource;
     //private LevelManager levelManager;
@@ -17,8 +23,14 @@ public class Goal : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
+            musicController.StopBackgroundMusic();
             audioSource.PlayOneShot(victorySound);
-            //levelManager.LoadNextLevel();
+            Invoke("loadLevel", delay);
         }
+    }
+
+
+    private void loadLevel() {
+        levelManager.LoadNextLevel();
     }
 }
